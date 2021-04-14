@@ -37,3 +37,12 @@ it('can change owners', async () => {
     let secondOwner = await instance.starOwner.call();
     assert.equal(secondOwner, secondUser);
  });
+
+// Example test case, it will test if the contract is able to return the starName property 
+// changed in the contract changeName function
+it('can change name', async () => {
+    let instance = await StarNotary.deployed(); // Making sure the Smart Contract is deployed and getting the instance.
+    await instance.changeName("Wonderful Udacity Star");
+    let starName = await instance.starName.call(); // Calling the starName property
+    assert.equal(starName, "Wonderful Udacity Star"); // Assert if the starName property was initialized correctly
+});
