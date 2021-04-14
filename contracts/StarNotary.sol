@@ -1,4 +1,4 @@
-pragma solidity >= 0.5.16;
+pragma solidity >= 0.8.2;
 
 contract StarNotary {
 
@@ -14,6 +14,10 @@ contract StarNotary {
     function claimStar() public {
         starOwner = msg.sender;
         emit starClaimed(msg.sender);
+    }
+
+    function changeName (string memory newName) public{
+        starName = newName;
     }
 
 }
